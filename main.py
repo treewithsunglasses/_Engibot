@@ -1,10 +1,12 @@
 import discord
 from discord.ext import commands
+import actions.Avatar as Avatar
 import util.jsonreader as jReader
 import util.cache as cache
 import util.utils_math as uMath
-import actions.silly as silly
 import data.tf2class as tf2class
+import actions.Silly as Silly
+import actions.Flag as Flag
 
 # VARIABLES
 STARBOARD_EMOJI = "⭐"
@@ -89,15 +91,12 @@ def checkBlacklist(id):
 async def on_ready():
     print(f'Logged in as {bot.user} (ID: {bot.user.id})')
     print('------')
+    await bot.change_presence(
+        status=discord.Status.idle,
+        activity=discord.Activity(type=discord.ActivityType.listening, name="to Croods while ovulating")
+    )
     await starboard_cache()
-
-@bot.event
-async def on_typing(channel, user, when):
-    print(f"{user.name} is speaking")
-    if(user.bot) : return
-    roll = uMath.roll(5)
-    if(roll) : return
-    await channel.send("Oh look, the nerd is speaking")
+    Flag.flagCache()
 
 @bot.event
 async def on_message_delete(message):
@@ -122,11 +121,27 @@ async def tf2(ctx, arg1):
             description=CHARACTER.description,
             color=0xFF5733
         )
-        EMBED.set_thumbnail(url=CHARACTER.thumbnail)
+        EMBED.set_image(url=CHARACTER.thumbnail)
         await ctx.reply(embed=EMBED)
     except ValueError as e:
         print(e)
         await ctx.reply("You did not provide a valid class!")
+
+@bot.command("avatar")
+async def avatar(ctx, args):
+    await Avatar.collect(ctx)
+    return
+    TARGET = ctx.author
+    if(args):
+        TARGET_ID = args.strip("<@!>")
+        TARGET = await bot.fetch_user(int(TARGET_ID))
+
+    AVATAR = TARGET.avatar
+    await ctx.reply(AVATAR.url)
+
+@bot.command("flag")
+async def flag (ctx, arg1, arg2):
+    await Flag.pride(ctx, arg1, arg2)
 
 # LISTENERS
 @bot.listen()
@@ -141,8 +156,8 @@ async def on_message(message):
             await message.add_reaction(STARBOARD_EMOJI)
             return
 
-    await silly.reply_tf2(message)
-    await silly.sillyreplies(message)
+    await Silly.reply_tf2(message)
+    await Silly.sillyreplies(message)
 
 @bot.listen()
 async def on_reaction_add(reaction, user):

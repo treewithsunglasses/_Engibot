@@ -7,13 +7,18 @@ channels = jReader.read("./data/channels.json")
 
 async def reply_tf2(message):
     if message.channel.id in channels["silly"]:
-        if(uMath.roll(2)) : return
-        await message.channel.send("please twin")
-        await message.reply("https://tenor.com/view/tf2-team-fortress-2-hop-gif-6374489811387781157")
+        if(uMath.roll(99)) : return
+        if(uMath.roll(99)) : return
+        await message.channel.send(f"please twin.... <@{message.author.id}>")
+        if(uMath.roll(50)) :
+            await message.channel.send("https://tenor.com/view/tf2-team-fortress-2-hop-gif-6374489811387781157")
+            return
+        else:
+            await message.channel.send("https://tenor.com/view/team-fortress-2-tf2-medic-heavy-medic-tf2-gif-2069984277182190933")
 
 async def sillyreplies(message):
     if message.channel.id in channels["silly"]:
-        if(uMath.roll(50)) : return
+        if(uMath.roll(80)) : return
         match message.content.lower():
             case "arasaka":
                 await message.reply("Arasaka.....")

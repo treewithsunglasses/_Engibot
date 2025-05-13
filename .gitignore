@@ -3,3 +3,7 @@ data/starboard_cache.json
 __pycache__/
 data/tokens.json
 data/tokens.json
+*.png
+*.gif
+*.pyc
+*.pyc

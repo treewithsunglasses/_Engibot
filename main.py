@@ -18,6 +18,51 @@ bot = commands.Bot(command_prefix=':3 ', intents=MYINTENTS)
 cache.starboard_load()
 CHANNELS = jReader.read("./data/channels.json")
 
+# SETUP
+
+async def starboard_cache():
+    for channel_id in CHANNELS["art"]:
+        channel = bot.get_channel(channel_id)
+        if channel is None:
+            print(f"Channel ID {channel_id} not found or nto cached")
+            continue
+        print(f"Scanning channel: {channel.name}")
+
+        try:
+            async for message in channel.history(limit=None, oldest_first=True):
+                MESSAGE_ID = str(message.id)
+                if MESSAGE_ID in cache.starred_messages:
+                    continue
+
+                if message.attachments:
+                    has_image = any(
+                        att.content_type and att.content_type.startswith("image/")
+                        for att in message.attachments
+                    )
+                    if has_image:
+                        message_id_str = str(message.id)
+
+                        # Check if already reacted with the star emoji by anyone
+                        star_reaction = next((r for r in message.reactions if r.emoji == STARBOARD_EMOJI), None)
+
+                        if star_reaction:
+                            # Add to cache if not already cached
+                            if message_id_str not in cache.starred_messages:
+                                print(f"Message {message.id} already has {star_reaction.count} stars; caching it.")
+                                cache.starred_messages[message_id_str] = star_reaction.count
+                                cache.starboard_save()
+                        else:
+                            try:
+                                await message.add_reaction(STARBOARD_EMOJI)
+                                print(f"Starred message {message.id} in #{channel.name}")
+                                cache.starred_messages[message_id_str] = 1
+                                cache.starboard_save()
+                            except Exception as e:
+                                print(f"Failed to react to message {message.id}: {e}")
+
+        except Exception as e:
+            print(f"Failed to read history in {channel.name}: {e}")
+
 # BOOL CONDITIONALS
 def isValidChannel(id):
     WHITELIST = CHANNELS["whitelist"]
@@ -44,6 +89,7 @@ def checkBlacklist(id):
 async def on_ready():
     print(f'Logged in as {bot.user} (ID: {bot.user.id})')
     print('------')
+    await starboard_cache()
 
 @bot.event
 async def on_typing(channel, user, when):

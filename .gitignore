@@ -1,1 +1,3 @@
-./data/tokens.json
+data/tokens.json
+data/starboard_cache.json
+__pycache__/

@@ -1,8 +1,8 @@
 import discord
 from discord.ext import commands
 import actions.Avatar as Avatar
-import util.jsonreader as jReader
-import util.cache as cache
+import util.utils_json as jReader
+import util.utils_cache as utils_cache
 import util.utils_math as uMath
 import data.tf2class as tf2class
 import actions.Silly as Silly
@@ -10,30 +10,30 @@ import actions.Flag as Flag
 
 # VARIABLES
 STARBOARD_EMOJI = "⭐"
+PREFIX = ':3 '
 
 # Setup Intents
 MYINTENTS = discord.Intents.all()
 MYINTENTS.reactions = True
-bot = commands.Bot(command_prefix=':3 ', intents=MYINTENTS)
+bot = commands.Bot(command_prefix=PREFIX, intents=MYINTENTS)
 
 # Data
-cache.starboard_load()
+utils_cache.starboard_load()
 CHANNELS = jReader.read("./data/channels.json")
-
 # SETUP
 
 async def starboard_cache():
     for channel_id in CHANNELS["art"]:
         channel = bot.get_channel(channel_id)
         if channel is None:
-            print(f"Channel ID {channel_id} not found or nto cached")
+            print(f"[LOG] Channel ID {channel_id} not found or not cached")
             continue
-        print(f"Scanning channel: {channel.name}")
+        print(f"[LOG] Scanning channel: {channel.name}")
 
         try:
             async for message in channel.history(limit=None, oldest_first=True):
                 MESSAGE_ID = str(message.id)
-                if MESSAGE_ID in cache.starred_messages:
+                if MESSAGE_ID in utils_cache.starred_messages:
                     continue
 
                 if message.attachments:
@@ -49,16 +49,16 @@ async def starboard_cache():
 
                         if star_reaction:
                             # Add to cache if not already cached
-                            if message_id_str not in cache.starred_messages:
+                            if message_id_str not in utils_cache.starred_messages:
                                 print(f"Message {message.id} already has {star_reaction.count} stars; caching it.")
-                                cache.starred_messages[message_id_str] = star_reaction.count
-                                cache.starboard_save()
+                                utils_cache.starred_messages[message_id_str] = star_reaction.count
+                                utils_cache.starboard_save()
                         else:
                             try:
                                 await message.add_reaction(STARBOARD_EMOJI)
                                 print(f"Starred message {message.id} in #{channel.name}")
-                                cache.starred_messages[message_id_str] = 1
-                                cache.starboard_save()
+                                utils_cache.starred_messages[message_id_str] = 1
+                                utils_cache.starboard_save()
                             except Exception as e:
                                 print(f"Failed to react to message {message.id}: {e}")
 
@@ -130,18 +130,50 @@ async def tf2(ctx, arg1):
 @bot.command("avatar")
 async def avatar(ctx, args):
     await Avatar.collect(ctx)
-    return
-    TARGET = ctx.author
-    if(args):
-        TARGET_ID = args.strip("<@!>")
-        TARGET = await bot.fetch_user(int(TARGET_ID))
-
-    AVATAR = TARGET.avatar
-    await ctx.reply(AVATAR.url)
 
 @bot.command("flag")
 async def flag (ctx, arg1, arg2):
     await Flag.pride(ctx, arg1, arg2)
+
+@bot.command("gif")
+async def gif (ctx):
+    await Silly.reply_gif(ctx.message)
+
+@bot.command("add")
+async def add (ctx, arg1, arg2=""):
+    print("Called add")
+    match arg1:
+        case "gif":
+            if not arg2 :
+                await ctx.reply("Please provide a gif to add") 
+                return
+            try: 
+                jReader.addList(
+                    file_path="./data/responses.json",
+                    key_path=["hopOn", "urls"],
+                    item=arg2
+                    )
+                await ctx.reply("Done!")
+            except Exception as e:
+                await ctx.reply(e)
+        case "response":
+            if not arg2 :
+                await ctx.reply("Please provide a response to add")
+                return
+            try:
+                jReader.addList(
+                    file_path="./data/responses.json",
+                    key_path=["hopOn", "responses"],
+                    item=arg2
+                )
+                await ctx.reply("Done!")
+            except Exception as e:
+                await ctx.reply(e)
+
+
+@bot.command("explode")
+async def explode (ctx):
+    await ctx.reply("Explodes you")
 
 # LISTENERS
 @bot.listen()
@@ -158,6 +190,7 @@ async def on_message(message):
 
     await Silly.reply_tf2(message)
     await Silly.sillyreplies(message)
+    await Silly.broWent(message)
 
 @bot.listen()
 async def on_reaction_add(reaction, user):
@@ -174,13 +207,13 @@ async def on_reaction_add(reaction, user):
     CHANNEL_ID = CHANNEL.id
     COUNT = reaction.count
     MILESTONES = {3, 5, 10, 25, 50, 100}
-    PREV_MILESTONE = cache.starred_messages.get(str(MESSAGE_ID), 0)
+    PREV_MILESTONE = utils_cache.starred_messages.get(str(MESSAGE_ID), 0)
 
     # Is this new reaction a star?
     for milestone in sorted(MILESTONES):
         if COUNT >= milestone > PREV_MILESTONE:
-            cache.starred_messages[MESSAGE_ID] = milestone
-            cache.starboard_save()
+            utils_cache.starred_messages[MESSAGE_ID] = milestone
+            utils_cache.starboard_save()
     
             # Build the embed to send
             AUTHOR = MESSAGE.author.name

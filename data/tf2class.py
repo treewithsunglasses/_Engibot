@@ -1,5 +1,5 @@
 import enum
-from util import jsonreader
+from util import utils_json
 
 classes = {
     "scout",
@@ -19,7 +19,7 @@ class TF2Character:
         if lowername not in classes:
             raise ValueError(f"'{asName}' is not a valid TF2 class.")
 
-        data = jsonreader.read("./data/tf2.json")
+        data = utils_json.read("./data/tf2.json")
         self.name = lowername
         self.thumbnail = data[lowername]["_thumb"]
         self.description = data[lowername]["_desc"]

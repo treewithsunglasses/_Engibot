@@ -1,5 +1,5 @@
 import discord
-from util import jsonreader as jReader
+from util import utils_json as jReader
 
 config = jReader.read("./data/config.json")
 

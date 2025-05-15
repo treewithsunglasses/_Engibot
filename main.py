@@ -1,16 +1,19 @@
 import discord
 from discord.ext import commands
+from discord import utils as dUtils
 import actions.Avatar as Avatar
 import util.utils_json as jReader
 import util.utils_cache as utils_cache
 import util.utils_math as uMath
+import util.utils_discord as uDiscord
 import data.tf2class as tf2class
 import actions.Silly as Silly
 import actions.Flag as Flag
 
 # VARIABLES
 STARBOARD_EMOJI = "⭐"
-PREFIX = ':3 '
+PREFIX = '-'
+STAFFID = 1372047838770626640
 
 # Setup Intents
 MYINTENTS = discord.Intents.all()
@@ -99,11 +102,40 @@ async def on_ready():
     Flag.flagCache()
 
 @bot.event
+async def on_typing(channel, user: discord.Member, when):
+    print(f"{user.name} is speaking")
+    if(user.bot) : return
+    roll = uMath.roll(95, "Nerd is speaking")
+    if not roll : return
+    await channel.send(f"Oh look, the nerd {user.name} is speaking...")
+
+@bot.event
 async def on_message_delete(message):
     if(uMath.roll(40)) : return
     await message.channel.send("https://tenor.com/view/i-saw-w-gus-fring-gus-gustavo-deleted-gif-25440636")
 
 # COMMANDS
+@bot.command()
+async def check_role(ctx, member: discord.Member, role_id: int):
+    role = dUtils.get(ctx.guild.roles, id=role_id)
+    if role is None:
+        await ctx.send(f"Role with ID {role_id} not found.")
+        return
+    if role in member.roles:
+        await ctx.send(f"{member.display_name} has the role: {role.name}")
+    else:
+        await ctx.send(f"{member.display_name} does not have the role: {role.name}")
+
+@bot.command(name='kill')
+async def shutdown(ctx):
+    role = dUtils.get(ctx.guild.roles, id=STAFFID)
+    roles = ctx.author.roles
+    if role in roles:
+        await ctx.send("Shutting down...")
+        await bot.close()
+    else:
+        await ctx.send('I AM IMMORTAL')
+
 @bot.command("hello")
 async def hello(ctx):
     print(ctx)
@@ -174,6 +206,11 @@ async def add (ctx, arg1, arg2=""):
 @bot.command("explode")
 async def explode (ctx):
     await ctx.reply("Explodes you")
+
+@bot.command("commands")
+async def commands (ctx):
+    EMBED : discord.Embed = uDiscord.help()
+    await ctx.channel.send(embed=EMBED)
 
 # LISTENERS
 @bot.listen()

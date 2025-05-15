@@ -6,7 +6,7 @@ import datetime
 import re
 
 CHANNELS = jReader.read("./data/channels.json")
-RESPONSES = jReader.read("./data/responses.json")
+
 
 def first_to_third_person(text, third_subject="they"):
     pronoun_map = {
@@ -24,16 +24,20 @@ def first_to_third_person(text, third_subject="they"):
     return text
 
 async def reply_tf2(message):
-
+    RESPONSES = jReader.read("./data/responses.json")
     if message.channel.id in CHANNELS["silly"]:
         if uMath.roll(95, "Response"):
             RESPONSE = uMath.randElement(RESPONSES["hopOn"]["responses"])
             URL = uMath.randElement(RESPONSES["hopOn"]["urls"])
 
-            await message.channel.send(RESPONSE)
-            if(uMath.roll(50, "Send Gif")) : await message.channel.send(URL)
+            if(uMath.roll(80, "Send All")):
+                await message.channel.send(RESPONSE)
+                await message.channel.send(URL)
+            if(uMath.roll(50, "Send Gif or Response")) :    await message.channel.send(URL)
+            else:                               await message.channel.send(RESPONSE)
 
 async def reply_gif(message):
+    RESPONSES = jReader.read("./data/responses.json")
     RESPONSE = uMath.randElement(RESPONSES["hopOn"]["responses"])
     URL = uMath.randElement(RESPONSES["hopOn"]["urls"])
     await message.channel.send(RESPONSE)

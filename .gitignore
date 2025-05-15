@@ -7,3 +7,5 @@ data/tokens.json
 *.gif
 *.pyc
 *.pyc
+*.pyc
+actions/__pycache__/silly.cpython-310.pyc

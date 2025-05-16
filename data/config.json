@@ -1,5 +1,13 @@
 {
     "embed": {
-        "color": "0xFF5733"
+        "color": "FF5733"
+    },
+    "prefix": "-",
+    "status": "to the Croods while ovulating",
+    "emojis": {
+        "starboard": "⭐"
+    },
+    "roles": {
+        "staff": 1372047838770626640
     }
 }

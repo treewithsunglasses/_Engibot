@@ -36,5 +36,8 @@
     },
     "-explode": {
         "_desc": "Go ahead... try it... what do I have to lose?"
+    },
+    "-ignoreme": {
+        "_desc": "I... I understand if you don't want to continue- I\u2019ll stil love you"
     }
 }

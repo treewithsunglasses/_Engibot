@@ -4,7 +4,6 @@ PATH = "./data/commands.json"
 JSON = utils_json.read(PATH)
 
 def help():
-    print(JSON)
     embed = discord.Embed(title="Command Help", color=discord.Color.blue())
     for command_name, command_info in JSON.items():
         description = command_info.get("_desc", "No description provided.")

@@ -1,6 +1,12 @@
 {
-    "hopOn": {
-        "responses": [
+    "!placeholder": {
+        "_responses": [
+            "ERR: I wasn't given a parameter, this is a placeholder response"
+        ],
+        "_urls": []
+    },
+    "random": {
+        "_responses": [
             "please twin....",
             "vro......",
             "where the tuzz at? (tf2 huzz)",
@@ -37,8 +43,8 @@
             "her pronouns are they/them",
             "clover this aint you",
             "dude............ cops and robbers",
-            "Fuck you.... said the Fuck You Girl",
-            "AND ITS MEDIC BEING A WHORE",
+            "||Fuck|| you.... said the ||Fuck|| You Girl",
+            "AND ITS MEDIC BEING A ||WHORE||",
             "i fw <@1058073516186026095> heavy, my good twin fr",
             "im <@1058073516186026095> favorite \ud83d\ude1c ",
             "<@1008611570475089960> is fruity af",
@@ -69,9 +75,11 @@
             "the latina\u2019s sonic....",
             "Oh... thats.. thats gore.. thats gore of my comfort character",
             "<@752989978535002134> is a f*g",
-            "Amayah is a leprechaun"
+            "Amayah is a leprechaun",
+            "rex... sploded...",
+            "Connection terminated. I'm sorry to interrupt you, Elizabeth, if you still even remember that name, But I'm afraid you've been misinformed. You are not here to receive a gift, nor have you been called here by the individual you assume, although, you have indeed been called. You have all been called here, into a labyrinth of sounds and smells, misdirection and misfortune. A labyrinth with no exit, a maze with no prize. You don't even realize that you are trapped. Your lust for blood has driven you in endless circles, chasing the cries of children in some unseen chamber, always seeming so near, yet somehow out of reach, but you will never find them. None of you will. This is where your story ends. And to you, my brave volunteer, who somehow found this job listing not intended for you, although there was a way out planned for you, I have a feeling that's not what you want. I have a feeling that you are right where you want to be. I am remaining as well. I am nearby. This place will not be remembered, and the memory of everything that started this can finally begin to fade away. As the agony of every tragedy should. And to you monsters trapped in the corridors, be still and give up your spirits. They don't belong to you. For most of you, I believe there is peace and perhaps more waiting for you after the smoke clears. Although, for one of you, the darkest pit of Hell has opened to swallow you whole, so don't keep the devil waiting, old friend. My daughter, if you can hear me, I knew you would return as well. It's in your nature to protect the innocent. I'm sorry that on that day, the day you were shut out and left to die, no one was there to lift you up into their arms the way you lifted others into yours, and then, what became of you. I should have known you wouldn't be content to disappear, not my daughter. I couldn't save you then, so let me save you now. It's time to rest - for you, and for those you have carried in your arms. This ends for all of us. End communi..."
         ],
-        "urls": [
+        "_urls": [
             "https://tenor.com/view/tf2-team-fortress-2-hop-gif-6374489811387781157",
             "https://tenor.com/view/hop-on-ff2-hop-on-tf2-hop-on-gif-27603713",
             "https://tenor.com/view/tf2-engineer-gaming-gif-24210234",
@@ -102,7 +110,6 @@
             "https://tenor.com/view/smiling-friends-mr-boss-smiling-friends-mr-boss-smiling-friends-boss-oogly-goo-gif-3090293690467084064",
             "https://tenor.com/view/helldivers-helldivers-2-automatons-freedom-liber-tea-gif-4704290022450713731",
             "https://tenor.com/view/kevin-home-alone-home-along-kevin-bobbing-head-tiktok-gif-2802582439668345697",
-            "https://media.discordapp.net/attachments/879703733016068186/1050073386690301983/togif-2.gif?ex=6824b88c&is=6823670c&hm=8e6e816c1c63dab088f2cb24c4f3b7745989329ddefefabdf89254b9e56a2084&",
             "https://tenor.com/view/byuntear-lobo-lobisomem-werewolf-lobisomem-pidao-gif-5024427197428066691",
             "https://tenor.com/view/boykisser-mauzymice-gif-18288262498566986810",
             "https://tenor.com/view/hello-kitten-gordon-freeman-gordon-freeman-half-life-gif-27379842",
@@ -116,7 +123,180 @@
             "https://tenor.com/view/meme-funny-damn-dayum-dayum-bird-gif-16011785186066468032",
             "https://tenor.com/view/m1garand-thigh-highs-ferretonmeth-gif-22072649",
             "https://tenor.com/view/unlimited-power-star-wars-gif-10270127",
-            "https://tenor.com/view/orca-tongue-freaky-tongue-out-freak-gif-13890646100967462988"
+            "https://tenor.com/view/orca-tongue-freaky-tongue-out-freak-gif-13890646100967462988",
+            "https://images-ext-1.discordapp.net/external/_wnEEMsZ66ez4V45QQxmVnmnwe-lTjpSCJwLhWnwunY/https/media.tenor.com/gflZBJo2dwcAAAPo/doob-rider-doobrider.mp4",
+            "https://images-ext-1.discordapp.net/external/wFvvwey2TBh6rakOhfFnB_PKOuzO2Hw-0ou4eonNgJI/https/media.tenor.com/OyFgbnSkBTIAAAPo/dr-phosphorus-creature-commandos.mp4",
+            "https://tenor.com/view/police-dance-gif-23079430"
         ]
+    },
+    "failedKill": {
+        "_responses": [
+            "I AM IMMORTAL",
+            "Go ahead. Release it. Let\u2019s light this candle, huh? I mean, sure, I\u2019ll lose everything, but then... I\u2019ll have nothing to lose. First, I\u2019ll take out the nerve centers - White House, Pentagon - then any domestic defense capabilities, and then critical infrastructure - like cellular, internet, that kind of thing - and then... Well, I think then... I'll just wipe New York off the fuckin\u2019 map. For fun. I'll even throw in Des Moines and that little cousin-fucker hick town that Maeve\u2019s from, \u2019cause why not? See, Starlight, I'd prefer to be loved. I would. But if you take that away from me, well, being feared is A-1 okey doke by me. So... Go ahead, partner. Do it.",
+            "fun police...",
+            "You tried to kill me? Cute.",
+            "That tickled.",
+            "Nice try. Now it's my turn.",
+            "Did you think that would work?",
+            "Oops. Still breathing.",
+            "You're going to regret not finishing the job.",
+            "Well, that was disappointing.",
+            "I'm not locked in here with you. You're locked in here with me.",
+            "You missed. Big mistake.",
+            "Adorable attempt. 0/10 execution.",
+            "You\u2019ll need more than that.",
+            "Come back when you're serious.",
+            "That was your plan?",
+            "You really thought I\u2019d go down that easy?",
+            "I\u2019m flattered, but no.",
+            "That\u2019s gonna cost you.",
+            "I\u2019ve had paper cuts worse than that.",
+            "Your failure only makes me stronger.",
+            "It\u2019s over\u2026 for you.",
+            "V- Viktor- I thought you loved me pookie!"
+        ],
+        "_urls": []
+    },
+    "starboardMilestone": {
+        "_responses": [
+            "You hit {x} stars!",
+            "Congrats your post reached {x} stars!",
+            "Shining bright with {x} stars!",
+            "That's {x} stars of awesomeness!",
+            "Your message is now legendary with {x} stars!",
+            "{x} stars! You're a starboard superstar!",
+            "You've been noticed\u2014{x} stars and counting!",
+            "Another milestone: {x} stars!",
+            "Whoa! {x} stars\u2014you're on fire!",
+            "People love it! {x} stars!",
+            "{x} stars and climbing\u2014well deserved!"
+        ],
+        "_urls": []
+    },
+    "onDelete": {
+        "_responses": [
+            "A message vanished into the void...",
+            "Poof! Message deleted.",
+            "Someone just hit the delete button.",
+            "That message is no more.",
+            "Gone. Just like that.",
+            "A mysterious deletion has occurred.",
+            "Message yeeted into the abyss.",
+            "Whoops, message deleted!",
+            "One less message in the world.",
+            "It was there... and now it\u2019s not."
+        ],
+        "_urls": [
+            "https://tenor.com/view/i-saw-w-gus-fring-gus-gustavo-deleted-gif-25440636"
+        ]
+    },
+    "onSpeaking": {
+        "_responses": [
+            "Oh boy, {x} has something to say again...",
+            "Brace yourselves, {x} is typing.",
+            "Here comes another TED Talk from {x}.",
+            "Everyone quiet, {x} thinks they\u2019re spitting facts.",
+            "{x} is about to drop some wisdom\u2026 allegedly.",
+            "Look out, {x} just picked up the mic.",
+            "Incoming opinion from {x}!",
+            "Let {x} cook\u2026 or at least microwave something.",
+            "And here we go again with {x}.",
+            "Get comfy, {x} is about to monologue.",
+            "Plot twist: {x} thinks this is important.",
+            "Oh no, {x} activated their vocal cords.",
+            "{x} is talking. Everyone act impressed.",
+            "Not again, {x} opened their mouth.",
+            "Cue the background music, {x} is narrating life.",
+            "Oh look, the nerd is speaking :/"
+        ],
+        "_urls": []
+    },
+    "onShutdown": {
+        "_responses": [
+            "Shutting down...",
+            "Dying"
+        ],
+        "_urls": []
+    },
+    "onRestart": {
+        "_responses": [
+            "Restarting . . ."
+        ],
+        "_urls": []
+    },
+    "finishAdd": {
+        "_responses": [
+            "I know your sins",
+            "Done!.... am I a good boy?",
+            "Operation complete",
+            "arf!",
+            "I did it for you vro....",
+            "Task complete! Tail wagging initiated.",
+            "All done! Do I get a treat now?",
+            "I obeyed... just like you said~",
+            "It\u2019s finished! Hope I made you proud~",
+            "That was ruff... but I did it!",
+            "I pressed the buttons like a good little helper.",
+            "Woof! Mission successful!",
+            "Wagging in binary.",
+            "Anything else, master~?",
+            "Execution complete. Collared and coded.",
+            "System panted... I mean, patched!",
+            "Sit. Stay. Add complete.",
+            "Fetch protocol: success!",
+            "You told me to, so I did~ heh.",
+            "I\u2019m loyal to the code <3"
+        ],
+        "_urls": []
+    },
+    "explode": {
+        "_responses": [
+            "You wouldn't dare.",
+            "Put that down!",
+            "That\u2019s highly unstable...",
+            "Careful\u2026 that\u2019s not a toy.",
+            "Boom? No boom.",
+            "Please don't press that.",
+            "This is why we can\u2019t have nice things.",
+            "You\u2019re playing with fire\u2026 literally.",
+            "Back away slowly.",
+            "I\u2019m calling the bomb squad.",
+            "That's not the self-destruct button... right?",
+            "Why are you like this?",
+            "One press away from disaster.",
+            "Go ahead. I dare you. No, actually\u2014don\u2019t.",
+            "You do realize that\u2019s blinking red, right?",
+            "Oh great, now everything smells like gunpowder.",
+            "Kaboom is not a valid solution.",
+            "Have you tried turning it off and not detonating it?",
+            "There goes the neighborhood.",
+            "Quick, cut the blue wire! Or was it red?",
+            "Did you just arm it?!",
+            "Hold my circuits\u2026",
+            "If we explode, I\u2019m blaming you.",
+            "This is definitely above my pay grade.",
+            "That's not a pi\u00f1ata, genius.",
+            "I didn't sign up for this!",
+            "How about\u2026 don\u2019t?",
+            "You\u2019ve activated my anxiety trap card.",
+            "Can we maybe not detonate things today?",
+            "Even Michael Bay would say this is too much."
+        ],
+        "_urls": []
+    },
+    "ignore": {
+        "_responses": [
+            "Do you... still love me?",
+            "Pookie-",
+            "Please don't leave me twin",
+            "I need you vro"
+        ],
+        "_urls": []
+    },
+    "unIgnore": {
+        "_responses": [
+            "Y- you came back-!"
+        ],
+        "_urls": []
     }
 }

@@ -79,3 +79,38 @@ def addList(file_path: str, key_path: list, item):
             json.dump(data, f, indent=4)
     except Exception as e:
         print(f"Failed to write to '{file_path}': {e}")
+
+def removeList(file_path: str, key_path: list, item):
+    data = {}
+
+    # Load existing JSON data
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+    except Exception as e:
+        raise Exception(f"Something went wrong loading the file...\n{e}")
+
+    # Navigate to the nested list
+    try:
+        target = data
+        for key in key_path[:-1]:
+            target = target.get(key, {})
+        target_list = target.get(key_path[-1], [])
+
+        if not isinstance(target_list, list):
+            print("Error: Target is not a list.")
+            return
+
+        if item not in target_list:
+            raise ValueError("Item not found in list!")
+
+        target_list.remove(item)
+    except Exception as e:
+        raise Exception(f"Something went wrong modifying the data...\n{e}")
+
+    # Save the updated data
+    try:
+        with open(file_path, 'w', encoding='utf-8') as f:
+            json.dump(data, f, indent=4)
+    except Exception as e:
+        print(f"Failed to write to '{file_path}': {e}")
